@@ -1,0 +1,57 @@
+# inherit from the proprietary version
+-include vendor/lge/d605/BoardConfigVendor.mk
+
+# Platform
+TARGET_NO_BOOTLOADER 		:= true
+TARGET_NO_RADIOIMAGE		:= true
+
+# Info
+TARGET_ARCH 					:= arm
+TARGET_BOARD_PLATFORM 			:= msm8230
+TARGET_CPU_ABI 					:= armeabi-v7a
+TARGET_CPU_ABI2 				:= armeabi
+TARGET_ARCH_VARIANT				:= armv7-a-neon
+TARGET_CPU_VARIANT 				:= krait
+TARGET_CPU_SMP 					:= true
+ARCH_ARM_HAVE_TLS_REGISTER 		:= true
+TARGET_BOOTLOADER_BOARD_NAME 	:= d605
+
+# Kernel stuff building
+TARGET_PREBUILT_KERNEL 	:= device/lge/d605/kernel
+BOARD_KERNEL_CMDLINE 	:= androidboot.hardware=d605 user_debug=31 msm_rtb msm_rtb.filter=0x3F vmalloc=308M ehci-hcd.park=3 maxcpus=2 androidboot.selinux=permissive
+BOARD_KERNEL_BASE 		:= 0x80200000
+BOARD_KERNEL_PAGESIZE	:= 2048
+BOARD_MKBOOTIMG_ARGS 	:= --ramdisk_offset 0x2000000
+
+# Partition sizes
+BOARD_BOOTIMAGE_PARTITION_SIZE 		:= 12582912
+BOARD_RECOVERYIMAGE_PARTITION_SIZE 	:= 12582912
+BOARD_SYSTEMIMAGE_PARTITION_SIZE 	:= 1811939328
+BOARD_USERDATAIMAGE_PARTITION_SIZE 	:= 4294967296
+BOARD_FLASH_BLOCK_SIZE 				:= 131072
+
+# Misc
+BOARD_HAS_NO_SELECT_BUTTON 	:= true
+
+# Recovery
+DEVICE_RESOLUTION					:= 720x1280
+RECOVERY_GRAPHICS_USE_LINELENGTH 	:= true
+RECOVERY_FSTAB_VERSION 				:= 2
+TW_NO_REBOOT_BOOTLOADER 			:= true
+TARGET_RECOVERY_PIXEL_FORMAT 		:= RGBX_8888
+TW_MAX_BRIGHTNESS 					:= 225
+TARGET_USE_CUSTOM_LUN_FILE_PATH 	:= /sys/class/android_usb/android0/f_mass_storage/lun/file
+TARGET_RECOVERY_FSTAB 				:= device/lge/d605/fstab.d605
+
+RECOVERY_SDCARD_ON_DATA 			:= true 
+BOARD_HAS_LARGE_FILESYSTEM 			:= true
+TARGET_USERIMAGES_USE_EXT4			:= true
+TW_DEFAULT_EXTERNAL_STORAGE			:= true
+
+TW_EXTERNAL_STORAGE_PATH 			:= "/sdcard"
+TW_EXTERNAL_STORAGE_MOUNT_POINT 	:= "sdcard"
+TW_INTERNAL_STORAGE_PATH 			:= "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT 	:= "data"
+
+
+
